@@ -1,5 +1,7 @@
-import Lib.ykExempleLib.SimulationEngine;
-import Lib.ykExempleLib.Updatable;
+package Main;
+
+import Lib.ykEngineArchitectureLib.SimulationEngine;
+import Lib.ykEngineArchitectureLib.Updatable;
 
 public abstract class Pedal extends Updatable {
 

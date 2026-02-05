@@ -1,3 +1,5 @@
+package Main;
+
 public class Throttle extends Pedal {
 
     //CONSTRUCTOR

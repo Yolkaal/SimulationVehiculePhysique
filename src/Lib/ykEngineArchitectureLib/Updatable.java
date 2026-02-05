@@ -1,4 +1,4 @@
-package Lib.ykExempleLib;
+package Lib.ykEngineArchitectureLib;
 
 public abstract class Updatable {
 

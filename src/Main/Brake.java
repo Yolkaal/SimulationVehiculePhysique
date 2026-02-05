@@ -1,3 +1,5 @@
+package Main;
+
 public class Brake extends Pedal {
 
     //CONSTRUCTOR

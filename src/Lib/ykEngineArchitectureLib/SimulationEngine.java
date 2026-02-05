@@ -1,4 +1,4 @@
-package Lib.ykExempleLib;
+package Lib.ykEngineArchitectureLib;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,10 +31,10 @@ public final class SimulationEngine {
     }
 
     public void Start(){
-
+        LAST_FRAME_TIMESTAMP = System.currentTimeMillis();
     }
 
-    public void End(){
+    private void EndFrame(){
         LAST_FRAME_TIMESTAMP = System.currentTimeMillis();
     }
 
@@ -43,6 +43,7 @@ public final class SimulationEngine {
             u.Update();
             System.out.println();
         }
+        EndFrame();
     }
 
     public float getFrameTime() {
