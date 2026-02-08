@@ -14,7 +14,7 @@ public abstract class Updatable {
 
     }
 
-    public void Stop(){
-
+    public void register(){
+        SimulationEngine.getInstance().Register(this);
     }
 }

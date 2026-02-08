@@ -12,7 +12,7 @@ public abstract class Pedal extends Updatable {
     //CONSTRUCTOR
 
     public Pedal(int maxStrength) {
-        SimulationEngine.getInstance().register(this);
+        register();
         this.maxStrength = maxStrength;
     }
 
@@ -25,6 +25,6 @@ public abstract class Pedal extends Updatable {
     //SETTER
 
     public void setStrength(int maxStrength) {
-        this.strength = strength;
+        maxStrength = strength;
     }
 }
