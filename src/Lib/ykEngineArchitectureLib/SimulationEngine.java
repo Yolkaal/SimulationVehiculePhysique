@@ -10,6 +10,7 @@ import java.util.concurrent.TimeUnit;
 public final class SimulationEngine {
 
     private boolean engineRunning;
+    public long LAUNCH_TIMESTAMP;
     private long LAST_FRAME_TIMESTAMP;
     private long CURRENT_FRAME_TIMESTAMP;
 
@@ -37,15 +38,17 @@ public final class SimulationEngine {
     }
 
     public void Awake() {
-        LAST_FRAME_TIMESTAMP = System.currentTimeMillis();
+        LAUNCH_TIMESTAMP = System.currentTimeMillis();
         for (Updatable u : SIM_OBJECT_REGISTRY) {
             u.Awake();
         }
+        LAST_FRAME_TIMESTAMP = System.currentTimeMillis();
     }
 
     public void Start() {
         for (Updatable u : SIM_OBJECT_REGISTRY) {
             u.Start();
+            u.getInfo();
         }
     }
 
@@ -60,14 +63,25 @@ public final class SimulationEngine {
             Logger.log(LogLevel.INFO, "FRAMETIME : " + getFrameTime());
             Logger.log(LogLevel.INFO, "FRAMERATE : " + getFrameRate());
             LAST_FRAME_TIMESTAMP = System.currentTimeMillis();
+            if (LAST_FRAME_TIMESTAMP - LAUNCH_TIMESTAMP > 50000) {
+                Stop();
+            }
         }
+    }
+
+    public void Stop() {
+        engineRunning = false;
     }
 
     public void Update() throws InterruptedException {
         for (Updatable u : SIM_OBJECT_REGISTRY) {
             u.Update();
         }
-        TimeUnit.MILLISECONDS.sleep(17);
+        TimeUnit.MILLISECONDS.sleep(16);
+    }
+
+    public boolean isEngineRunning() {
+        return engineRunning;
     }
 
     public long getFrameTime() {
