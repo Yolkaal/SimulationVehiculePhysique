@@ -1,6 +1,7 @@
 import org.gradle.internal.os.OperatingSystem
 plugins {
 	id 'java'
+	id 'application'
 }
 project.ext.lwjglVersion = "3.4.1"
 
@@ -109,4 +110,9 @@ dependencies {
 	implementation "org.lwjgl:lwjgl-xxhash::$lwjglNatives"
 	implementation "org.lwjgl:lwjgl-yoga::$lwjglNatives"
 	implementation "org.lwjgl:lwjgl-zstd::$lwjglNatives"
+	implementation "org.joml:joml:1.10.5"
+}
+
+application {
+	mainClass = 'ykSimEngine.Main'
 }
