@@ -5,7 +5,8 @@ public enum LogLevel {
     INFO(new AnsiColor(0,250,255).getAnsiColor()),
     WARN(new AnsiColor(255, 200, 0).getAnsiColor()),
     ERROR(new AnsiColor(255,0,0).getAnsiColor()),
-    DEBUG(new AnsiColor(0,255,60).getAnsiColor());
+    DEBUG(new AnsiColor(0,255,60).getAnsiColor()),
+    TRACE(new AnsiColor(120, 120, 120).getAnsiColor());
 
     public final String color;
 

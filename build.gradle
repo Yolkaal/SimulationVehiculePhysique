@@ -30,6 +30,7 @@ repositories {
 
 dependencies {
 	implementation platform("org.lwjgl:lwjgl-bom:$lwjglVersion")
+	implementation "org.jetbrains:annotations:24.1.0"
 
 	implementation "org.lwjgl:lwjgl"
 	implementation "org.lwjgl:lwjgl-assimp"

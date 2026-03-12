@@ -1,5 +1,7 @@
 package ykSimEngine.eng.wnd;
 
+import Lib.ykLoggerLib.LogLevel;
+import Lib.ykLoggerLib.Logger;
 import org.lwjgl.glfw.GLFWVidMode;
 import org.lwjgl.system.MemoryUtil;
 
@@ -31,6 +33,7 @@ public class Window {
         width = vidMode.width();
         height = vidMode.height();
 
+        Logger.log(LogLevel.INFO, "initializing display with resolution " + width + "x" + height);
         glfwDefaultWindowHints();
         glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
         glfwWindowHint(GLFW_MAXIMIZED, GLFW_FALSE);

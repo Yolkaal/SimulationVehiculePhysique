@@ -10,7 +10,7 @@ public class Main implements IGameLogic {
 
     public static void main(String[] args) {
         Logger.log(LogLevel.INFO,"Starting application");
-        var engine = new Engine("Vulkan Book", new Main());
+        var engine = new Engine("Sim Engine", new Main());
         Logger.log(LogLevel.INFO,"Started application");
         engine.run();
     }
