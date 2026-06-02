@@ -71,7 +71,7 @@ public class Device {
             IntBuffer numExtensionsBuf = stack.callocInt(1);
             vkEnumerateDeviceExtensionProperties(physDevice.getVkPhysicalDevice(), (String) null, numExtensionsBuf, null);
             int numExtensions = numExtensionsBuf.get(0);
-            Logger.trace("Device supports [{}] extensions", numExtensions);
+            Logger.log(LogLevel.TRACE,"Device supports "+ numExtensions +" extensions");
 
             try (var propsBuff = VkExtensionProperties.calloc(numExtensions)) {
                 vkEnumerateDeviceExtensionProperties(physDevice.getVkPhysicalDevice(), (String) null, numExtensionsBuf, propsBuff);
@@ -79,7 +79,7 @@ public class Device {
                     VkExtensionProperties props = propsBuff.get(i);
                     String extensionName = props.extensionNameString();
                     deviceExtensions.add(extensionName);
-                    Logger.trace("Supported device extension [{}]", extensionName);
+                    //Logger.trace("Supported device extension [{}]", extensionName);
                 }
 
             }
@@ -88,7 +88,7 @@ public class Device {
     }
 
     public void cleanup() {
-        Logger.debug("Destroying Vulkan device");
+        //Logger.debug("Destroying Vulkan device");
         vkDestroyDevice(vkDevice, null);
     }
 
